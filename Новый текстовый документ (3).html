@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Образовательный Навигатор</title>
+    <style>
+        :root {
+            --bg-dark: #0b132b;
+            --card-dark: #1c2541;
+            --accent: #5bc0be;
+            --text-light: #e0e1dd;
+            --text-gray: #9ca3af;
+            --border: #3a506b;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            height: 100%;
+            scroll-snap-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .card {
+            background-color: var(--card-dark);
+            padding: 30px;
+            border-radius: 24px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 95vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1, h2 {
+            color: var(--accent);
+            margin: 0 0 20px 0;
+            font-size: 1.8rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .label {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+            color: #d1d5db;
+        }
+
+        .site-link {
+            display: block;
+            background: linear-gradient(135deg, #5bc0be 0%, #3a506b 100%);
+            color: var(--bg-dark);
+            text-decoration: none;
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 800;
+            text-align: center;
+            margin-top: 10px;
+            transition: transform 0.2s;
+        }
+
+        .site-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .nav-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-btn {
+            background: var(--border);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .swipe-hint {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-style: italic;
+        }
+
+        ul {
+            margin: 10px 0;
+            padding-left: 18px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+
+<div class="slider" id="slider">
+    
+    <!-- ВСТУПЛЕНИЕ -->
+    <div class="slide">
+        <div class="card">
+            <h1>Топ-5 ресурсов для учёбы</h1>
+            <p>Этот проект поможет тебе ориентироваться в море образовательной информации. Мы собрали 5 официальных сайтов, которые сделают твою подготовку к экзаменам эффективной и системной.</p>
+            <div class="section" style="margin-top: 20px;">
+                <span class="label">Что внутри плей-листа:</span>
+                <ul>
+                    <li>Разбор сложных тем через видеоуроки.</li>
+                    <li>Все учебники РБ в цифровом формате.</li>
+                    <li>Официальные тренажеры ЦТ и ЦЭ.</li>
+                    <li>Сервисы для выбора ВУЗа и профессии.</li>
+                </ul>
+            </div>
+            <div class="nav-footer">
+                <span class="swipe-hint">Свайпни вправо 👉</span>
+                <button class="nav-btn" onclick="go(1)">Начать</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1. EIOR -->
+    <div class="slide">
+        <div class="card">
+            <h2>1. eior.by (ЕИОР)</h2>
+            <div class="section">
+                <span class="label">Функционал:</span>
+                <p>Единый информационно-образовательный ресурс — это полноценная "онлайн-школа". Здесь собраны видеоуроки от лучших учителей страны по всем предметам с 1 по 11 класс.</p>
+            </div>
+            <div class="section">
+                <span class="label">Чем полезен старшекласснику:</span>
+                <p>Если ты пропустил урок или не понял тему "Магнитное поле" или "Органическая химия", просто найди нужный модуль. К каждому видео прилагаются тестовые задания для мгновенной проверки знаний.</p>
+            </div>
+            <a href="https://eior.by" target="_blank" class="site-link">Смотреть уроки</a>
+            <div class="nav-footer">
+                <button class="nav-btn" onclick="go(0)">Назад</button>
+                <button class="nav-btn" onclick="go(2)">Далее</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. E-VEDY -->
+    <div class="slide">
+        <div class="card">
+            <h2>2. e-vedy.adu.by</h2>
+            <div class="section">
+                <span class="label">Возможности:</span>
+                <p>Это облачное хранилище всех актуальных учебных пособий. Но это не просто PDF — портал предлагает интерактивные электронные ресурсы (ЭОР) с элементами мультимедиа.</p>
+            </div>
+            <div class="section">
+                <span class="label">Как использовать:</span>
+                <p>Больше не нужно носить с собой бумажные книги. Ты можешь открывать любой параграф с телефона, искать по ключевым словам и выполнять упражнения с автоматической проверкой ответа.</p>
+            </div>
+            <a href="https://e-vedy.adu.by" target="_blank" class="site-link">Открыть учебники</a>
+            <div class="nav-footer">
+                <button class="nav-btn" onclick="go(1)">Назад</button>
+                <button class="nav-btn" onclick="go(3)">Далее</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. RIKC -->
+    <div class="slide">
+        <div class="card">
+            <h2>3. rikc.by (РИКЗ)</h2>
+            <div class="section">
+                <span class="label">Критическая важность:</span>
+                <p>Сайт Республиканского института контроля знаний. Здесь формируются правила твоего главного испытания — Централизованного экзамена и Тестирования.</p>
+            </div>
+            <div class="section">
+                <span class="label">Главные разделы:</span>
+                <p>Заходи сюда, чтобы пройти дистанционное РТ (бесплатно), изучить "Спецификации" тестов (узнать, сколько заданий и каких тем будет в тесте) и ознакомиться с консультациями по итогам этапов РТ.</p>
+            </div>
+            <a href="https://rikc.by" target="_blank" class="site-link">Подготовиться к ЦТ</a>
+            <div class="nav-footer">
+                <button class="nav-btn" onclick="go(2)">Назад</button>
+                <button class="nav-btn" onclick="go(4)">Далее</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. KUDAPOSTUPAT -->
+    <div class="slide">
+        <div class="card">
+            <h2>4. kudapostupat.by</h2>
+            <div class="section">
+                <span class="label">Твоя стратегия:</span>
+                <p>Самый мощный аналитический портал для абитуриентов. Он помогает ответить на вопрос "Кем быть?" и "Куда я смогу пройти с моими баллами?".</p>
+            </div>
+            <div class="section">
+                <span class="label">Уникальные фишки:</span>
+                <p>Используй "Поиск по предметам", чтобы увидеть список всех ВУЗов, где принимают твой набор экзаменов. Сравнивай проходные баллы прошлых лет и читай новости об "Днях открытых дверей".</p>
+            </div>
+            <a href="https://kudapostupat.by" target="_blank" class="site-link">Выбрать профессию</a>
+            <div class="nav-footer">
+                <button class="nav-btn" onclick="go(3)">Назад</button>
+                <button class="nav-btn" onclick="go(5)">Далее</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. ADU.BY -->
+    <div class="slide">
+        <div class="card">
+            <h2>5. adu.by (Нац. портал)</h2>
+            <div class="section">
+                <span class="label">Официальный статус:</span>
+                <p>Национальный образовательный портал — это "Библия" белорусского школьника. Здесь публикуются официальные изменения в программах и нормы оценок.</p>
+            </div>
+            <div class="section">
+                <span class="label">Польза для профиля:</span>
+                <p>В разделе "Учащимся" можно найти материалы для подготовки к олимпиадам, списки обязательной литературы и требования к оформлению проектных работ (исследований).</p>
+            </div>
+            <a href="https://adu.by" target="_blank" class="site-link">Узнать новости</a>
+            <div class="nav-footer">
+                <button class="nav-btn" onclick="go(4)">Назад</button>
+                <span class="swipe-hint">Удачи в учёбе! 🎓</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const slider = document.getElementById('slider');
+    function go(index) {
+        slider.scrollTo({
+            left: slider.clientWidth * index,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+</body>
+</html>
